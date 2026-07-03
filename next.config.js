@@ -1,6 +1,5 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false, // Oculta huella de tecnología para mitigar ataques dirigidos al servidor.
   output: "standalone",
@@ -10,6 +9,6 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['framer-motion'], // Optimiza automáticamente la importación de submódulos de UI.
   },
-}
+};
 
-export default nextConfig;
+module.exports = nextConfig;
