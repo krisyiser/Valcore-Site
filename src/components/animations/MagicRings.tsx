@@ -128,6 +128,9 @@ export default function MagicRings({
   };
 
   useEffect(() => {
+    const isTouch = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    if (isTouch) return;
+
     const mount = mountRef.current;
     if (!mount) return;
 

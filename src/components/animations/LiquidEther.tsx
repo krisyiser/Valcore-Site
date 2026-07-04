@@ -56,6 +56,9 @@ export default function LiquidEther({
   const resizeRafRef = useRef<number | null>(null);
 
   useEffect(() => {
+    const isTouch = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    if (isTouch) return;
+
     if (!mountRef.current) return;
 
     function makePaletteTexture(stops: string[]) {

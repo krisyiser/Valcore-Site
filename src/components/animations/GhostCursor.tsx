@@ -236,6 +236,8 @@ const GhostCursor: React.FC<GhostCursorProps> = ({
   }
 
   useEffect(() => {
+    if (isTouch) return;
+
     const host = containerRef.current;
     const parent = host?.parentElement;
     if (!host || !parent) return;

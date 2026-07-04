@@ -37,11 +37,12 @@ import ScrollFloat from '../components/animations/ScrollFloat'
 import RotatingText from '../components/animations/RotatingText'
 import CountUp from '../components/animations/CountUp'
 
-// Three.js-based React Bits Animations
-import MagicRings from '../components/animations/MagicRings'
-import GhostCursor from '../components/animations/GhostCursor'
-import GradualBlur from '../components/animations/GradualBlur'
-import LiquidEther from '../components/animations/LiquidEther'
+import dynamic from 'next/dynamic'
+
+// Three.js-based React Bits Animations loaded dynamically on client-side only
+const MagicRings = dynamic(() => import('../components/animations/MagicRings'), { ssr: false })
+const GhostCursor = dynamic(() => import('../components/animations/GhostCursor'), { ssr: false })
+const LiquidEther = dynamic(() => import('../components/animations/LiquidEther'), { ssr: false })
 
 export default function HomePage() {
   const [selectedSector, setSelectedSector] = useState<string | null>(null);
