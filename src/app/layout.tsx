@@ -3,6 +3,7 @@ import { Inter, Montserrat, IBM_Plex_Mono } from 'next/font/google'
 import './globals.css'
 import MainHeader from '../components/MainHeader'
 import Footer from '../components/Footer'
+import MobileViewGuard from '../components/MobileViewGuard'
 
 const fontSans = Inter({
   subsets: ['latin'],
@@ -42,6 +43,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${fontSans.variable} ${fontDisplay.variable} ${fontMono.variable} bg-zinc-950 text-zinc-100 antialiased`}>
       <body className="min-h-screen flex flex-col selection:bg-white selection:text-black pt-16 bg-zinc-950">
+        <MobileViewGuard />
         <MainHeader />
         <main className="flex-grow flex flex-col">
           {children}
