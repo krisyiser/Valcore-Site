@@ -214,9 +214,18 @@ export default function MagicRings({
     mount.addEventListener('mouseleave', onMouseLeave);
     mount.addEventListener('click', onClick);
 
+    let isVisible = true;
+    const io = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      isVisible = entry.isIntersecting && entry.intersectionRatio > 0;
+    }, { threshold: [0, 0.01] });
+    io.observe(mount);
+
     let frameId: number;
     const animate = (t: number) => {
       frameId = requestAnimationFrame(animate);
+      if (!isVisible) return;
+
       const p = propsRef.current;
 
       smoothMouseRef.current[0] += (mouseRef.current[0] - smoothMouseRef.current[0]) * 0.08;
@@ -253,6 +262,7 @@ export default function MagicRings({
 
     return () => {
       cancelAnimationFrame(frameId);
+      io.disconnect();
       window.removeEventListener('resize', resize);
       ro.disconnect();
       mount.removeEventListener('mousemove', onMouseMove);

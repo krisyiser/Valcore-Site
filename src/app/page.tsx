@@ -121,9 +121,9 @@ export default function HomePage() {
             cursorSize={80}
             isViscous={false}
             viscous={30}
-            iterationsViscous={32}
-            iterationsPoisson={32}
-            resolution={0.5}
+            iterationsViscous={8}
+            iterationsPoisson={16}
+            resolution={0.25}
             isBounce={false}
             autoDemo={true}
             autoSpeed={0.4}
