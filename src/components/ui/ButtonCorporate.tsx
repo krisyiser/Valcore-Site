@@ -6,21 +6,21 @@ interface ButtonCorporateProps extends React.ButtonHTMLAttributes<HTMLButtonElem
 }
 
 /**
- * @description Botón industrial plano con indexación de teclado nativa. Sin degradados ni bordes redondeados estándar.
+ * @description Botón premium con estética minimalista de alto contraste y transición suave.
  */
 export const ButtonCorporate = React.forwardRef<HTMLButtonElement, ButtonCorporateProps>(
   ({ className = '', variant = 'primary', size = 'md', ...props }, ref) => {
-    const baseStyle = "inline-flex items-center justify-center font-display font-semibold uppercase tracking-wider transition-colors duration-150 focus:outline-none focus:ring-1 focus:ring-[#2563EB] focus:ring-offset-1 focus:ring-offset-[#F8FAFC] disabled:opacity-50 disabled:pointer-events-none rounded-none border border-transparent cursor-pointer"
+    const baseStyle = "inline-flex items-center justify-center font-display font-semibold uppercase tracking-wider transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-white focus:ring-offset-1 focus:ring-offset-black disabled:opacity-40 disabled:pointer-events-none rounded-none border cursor-pointer"
     
     const variants = {
-      primary: "bg-[#2563EB] text-white hover:bg-[#1D4ED8] active:bg-[#1E40AF]",
-      secondary: "bg-white text-[#334155] border-[#E2E8F0] hover:bg-[#F1F5F9] hover:text-[#0F172A]",
-      danger: "bg-[#D97706] text-white hover:bg-[#B45309]"
+      primary: "bg-white text-black border-transparent hover:bg-zinc-200 active:bg-zinc-300",
+      secondary: "bg-transparent text-white border-white/20 hover:bg-white/10 hover:border-white/40",
+      danger: "bg-red-950 text-red-200 border-red-800 hover:bg-red-900 active:bg-red-850"
     }
 
     const sizes = {
-      sm: "px-3 py-1.5 text-xs font-mono",
-      md: "px-5 py-2.5 text-sm"
+      sm: "px-4 py-2 text-xs font-mono",
+      md: "px-6 py-3 text-sm"
     }
 
     return (

@@ -1,0 +1,273 @@
+.card-nav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  box-sizing: border-box;
+}
+
+.card-nav {
+  display: block;
+  height: 64px;
+  padding: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+  will-change: height;
+}
+
+.card-nav-inner-wrapper {
+  max-width: 80rem; /* 1280px */
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 100%;
+  position: relative;
+}
+
+.card-nav-top {
+  position: absolute;
+  top: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+}
+
+.card-nav-cta-button {
+  background-color: #fff !important;
+  color: #000 !important;
+  border: 1px solid #fff;
+  border-radius: 0px;
+  padding: 0.45rem 1rem;
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.card-nav-cta-button:hover {
+  background-color: transparent !important;
+  color: #fff !important;
+}
+
+/* Bulletproof scale-only PillNav Styles */
+.pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 0 16px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e4e4e7;
+  text-decoration: none;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.pill:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.pill.is-active {
+  background: #ffffff;
+  color: #000000 !important;
+  border-color: #ffffff;
+}
+
+.pill.is-active .pill-content {
+  color: #000000 !important;
+}
+
+.pill .hover-circle {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  border-radius: 50%;
+  background: #ffffff;
+  z-index: 1;
+  display: block;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.pill .pill-content {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  z-index: 2;
+  transition: color 0.25s ease;
+  pointer-events: none;
+}
+
+/* CardNav Expanded Panels styling */
+.card-nav-content {
+  position: absolute;
+  left: 1.5rem;
+  right: 1.5rem;
+  top: 64px;
+  height: 220px;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-nav.open .card-nav-content {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.nav-card {
+  height: 200px;
+  flex: 1 1 0;
+  min-width: 0;
+  border-radius: 0px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px;
+  gap: 12px;
+  user-select: none;
+}
+
+.nav-card-label {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: -0.3px;
+  text-transform: uppercase;
+}
+
+.nav-card-links {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nav-card-link {
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #e4e4e7;
+}
+
+.nav-card-link:hover {
+  color: #fff;
+  padding-left: 3px;
+}
+
+.nav-card-link-icon {
+  opacity: 0.6;
+  transition: transform 0.2s ease;
+}
+
+.nav-card-link:hover .nav-card-link-icon {
+  transform: translate(2px, -2px);
+  opacity: 1;
+}
+
+/* Mobile Drawer & Hamburger */
+.hamburger-menu {
+  height: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 10;
+}
+
+.hamburger-menu:hover .hamburger-line {
+  opacity: 0.8;
+}
+
+.hamburger-line {
+  width: 22px;
+  height: 1.5px;
+  background-color: currentColor;
+  transition:
+    transform 0.25s ease,
+    opacity 0.2s ease,
+    margin 0.3s ease;
+  transform-origin: 50% 50%;
+}
+
+.hamburger-menu.open .hamburger-line:first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+
+.hamburger-menu.open .hamburger-line:last-child {
+  transform: translateY(-3px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .card-nav-inner-wrapper {
+    padding: 0 1rem;
+  }
+
+  .card-nav-content {
+    left: 1rem;
+    right: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    top: 64px;
+    height: auto;
+  }
+
+  .nav-card {
+    height: auto;
+    min-height: 60px;
+    flex: 1 1 auto;
+    max-height: none;
+    padding: 12px 16px;
+  }
+
+  .nav-card-label {
+    font-size: 14px;
+  }
+
+  .nav-card-link {
+    font-size: 13px;
+  }
+}

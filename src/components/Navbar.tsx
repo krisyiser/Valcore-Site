@@ -30,46 +30,46 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#F8FAFC]/90 backdrop-blur-md border-b border-[#E2E8F0] h-16">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/60 backdrop-blur-xl border-b border-white/10 h-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2" onClick={() => setActiveDropdown(null)}>
-          <div className="w-8 h-8 bg-[#2563EB] flex items-center justify-center font-display font-bold text-white rounded-none">
+          <div className="w-8 h-8 bg-white flex items-center justify-center font-display font-extrabold text-black rounded-none">
             V
           </div>
-          <span className="font-display font-bold text-lg tracking-wider text-[#0F172A]">
+          <span className="font-display font-bold text-lg tracking-wider text-white">
             VALCORE
           </span>
-          <span className="text-[10px] font-mono text-[#2563EB] bg-[#2563EB]/10 border border-[#2563EB]/30 px-1.5 py-0.5 rounded-none uppercase tracking-widest hidden sm:inline-block">
+          <span className="text-[10px] font-mono text-zinc-300 bg-white/5 border border-white/10 px-1.5 py-0.5 rounded-none uppercase tracking-widest hidden sm:inline-block">
             Core Engine
           </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center space-x-6">
+        <div className="hidden lg:flex items-center space-x-8">
           {/* Solutions Dropdown */}
           <div 
             className="relative"
             onMouseEnter={() => setActiveDropdown("soluciones")}
             onMouseLeave={() => setActiveDropdown(null)}
           >
-            <button className="flex items-center text-sm font-display font-semibold text-[#334155] hover:text-[#2563EB] transition-colors py-2 cursor-pointer">
+            <button className="flex items-center text-xs font-display font-bold tracking-widest text-zinc-200 hover:text-white transition-colors py-2 cursor-pointer">
               SOLUCIONES
-              <ChevronDown className="ml-1 w-4 h-4" />
+              <ChevronDown className="ml-1 w-3.5 h-3.5" />
             </button>
             
             {activeDropdown === "soluciones" && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-80 bg-white border border-[#E2E8F0] rounded-none shadow-xl p-4 grid grid-cols-1 gap-4">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-80 bg-zinc-950/95 border border-white/10 shadow-2xl p-4 grid grid-cols-1 gap-2 backdrop-blur-xl">
                 {solutions.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="flex items-start p-2 rounded-none hover:bg-[#F1F5F9] transition-colors"
+                    className="flex items-start p-2 rounded-none hover:bg-white/5 transition-colors border border-transparent hover:border-white/5"
                   >
-                    <item.icon className="w-5 h-5 text-[#2563EB] mr-3 mt-1 flex-shrink-0" />
+                    <item.icon className="w-4 h-4 text-white mr-3 mt-1 flex-shrink-0" />
                     <div>
-                      <div className="text-sm font-display font-semibold text-[#0F172A]">{item.name}</div>
-                      <p className="text-[11px] text-[#64748B] mt-0.5">{item.desc}</p>
+                      <div className="text-xs font-display font-bold text-white tracking-wide">{item.name}</div>
+                      <p className="text-[10px] text-zinc-300 mt-0.5 leading-relaxed">{item.desc}</p>
                     </div>
                   </Link>
                 ))}
@@ -83,18 +83,18 @@ export default function Navbar() {
             onMouseEnter={() => setActiveDropdown("industrias")}
             onMouseLeave={() => setActiveDropdown(null)}
           >
-            <button className="flex items-center text-sm font-display font-semibold text-[#334155] hover:text-[#2563EB] transition-colors py-2 cursor-pointer">
+            <button className="flex items-center text-xs font-display font-bold tracking-widest text-zinc-200 hover:text-white transition-colors py-2 cursor-pointer">
               VERTICALES
-              <ChevronDown className="ml-1 w-4 h-4" />
+              <ChevronDown className="ml-1 w-3.5 h-3.5" />
             </button>
 
             {activeDropdown === "industrias" && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-56 bg-white border border-[#E2E8F0] rounded-none shadow-xl p-2">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-56 bg-zinc-950/95 border border-white/10 shadow-2xl p-2 backdrop-blur-xl">
                 {industries.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="block px-4 py-2 text-xs font-display font-semibold text-[#334155] hover:text-[#2563EB] hover:bg-[#F1F5F9] rounded-none transition-colors"
+                    className="block px-4 py-2 text-[11px] font-display font-bold text-zinc-200 hover:text-white hover:bg-white/5 rounded-none transition-colors"
                   >
                     {item.name}
                   </Link>
@@ -103,11 +103,11 @@ export default function Navbar() {
             )}
           </div>
 
-          <Link href="/tecnologia" className="text-sm font-display font-semibold text-[#334155] hover:text-[#2563EB] transition-colors">
+          <Link href="/tecnologia" className="text-xs font-display font-bold tracking-widest text-zinc-200 hover:text-white transition-colors">
             TECNOLOGÍA
           </Link>
 
-          <Link href="/implementaciones" className="text-sm font-display font-semibold text-[#334155] hover:text-[#2563EB] transition-colors">
+          <Link href="/implementaciones" className="text-xs font-display font-bold tracking-widest text-zinc-200 hover:text-white transition-colors">
             IMPLEMENTACIONES
           </Link>
         </div>
@@ -116,7 +116,7 @@ export default function Navbar() {
         <div className="hidden lg:block">
           <Link
             href="/solicitar-demo"
-            className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white px-5 py-2.5 rounded-none text-xs font-mono font-bold tracking-wider transition-all uppercase border border-transparent"
+            className="bg-white hover:bg-zinc-200 text-black px-5 py-2.5 rounded-none text-[10px] font-mono font-bold tracking-widest transition-all uppercase border border-transparent"
           >
             SOLICITAR EVALUACIÓN
           </Link>
@@ -126,7 +126,7 @@ export default function Navbar() {
         <div className="lg:hidden flex items-center">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-[#0F172A] hover:text-[#2563EB] focus:outline-none"
+            className="text-white hover:text-zinc-400 focus:outline-none cursor-pointer"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -135,11 +135,11 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-16 bg-[#F8FAFC] border-b border-[#E2E8F0] max-h-[calc(100vh-4rem)] overflow-y-auto z-40 p-4 space-y-4 shadow-lg">
+        <div className="lg:hidden fixed inset-x-0 top-16 bg-zinc-950/95 border-b border-white/10 max-h-[calc(100vh-4rem)] overflow-y-auto z-40 p-4 space-y-4 shadow-2xl backdrop-blur-xl">
           <div>
             <button
               onClick={() => toggleDropdown("soluciones")}
-              className="flex items-center justify-between w-full text-left font-display font-bold text-sm tracking-wide text-[#0F172A] py-2 border-b border-[#E2E8F0]"
+              className="flex items-center justify-between w-full text-left font-display font-bold text-xs tracking-widest text-white py-2 border-b border-white/5"
             >
               SOLUCIONES
               <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === "soluciones" ? "rotate-180" : ""}`} />
@@ -151,7 +151,7 @@ export default function Navbar() {
                     key={item.name}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block py-1 text-xs text-[#334155] hover:text-[#2563EB]"
+                    className="block py-1 text-xs text-zinc-200 hover:text-white"
                   >
                     {item.name}
                   </Link>
@@ -163,7 +163,7 @@ export default function Navbar() {
           <div>
             <button
               onClick={() => toggleDropdown("industrias")}
-              className="flex items-center justify-between w-full text-left font-display font-bold text-sm tracking-wide text-[#0F172A] py-2 border-b border-[#E2E8F0]"
+              className="flex items-center justify-between w-full text-left font-display font-bold text-xs tracking-widest text-white py-2 border-b border-white/5"
             >
               VERTICALES
               <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === "industrias" ? "rotate-180" : ""}`} />
@@ -175,7 +175,7 @@ export default function Navbar() {
                     key={item.name}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block py-1 text-xs text-[#334155] hover:text-[#2563EB]"
+                    className="block py-1 text-xs text-zinc-200 hover:text-white"
                   >
                     {item.name}
                   </Link>
@@ -187,7 +187,7 @@ export default function Navbar() {
           <Link
             href="/tecnologia"
             onClick={() => setMobileMenuOpen(false)}
-            className="block font-display font-bold text-sm tracking-wide text-[#0F172A] py-2 border-b border-[#E2E8F0]"
+            className="block font-display font-bold text-xs tracking-widest text-white py-2 border-b border-white/5"
           >
             TECNOLOGÍA
           </Link>
@@ -195,7 +195,7 @@ export default function Navbar() {
           <Link
             href="/implementaciones"
             onClick={() => setMobileMenuOpen(false)}
-            className="block font-display font-bold text-sm tracking-wide text-[#0F172A] py-2 border-b border-[#E2E8F0]"
+            className="block font-display font-bold text-xs tracking-widest text-white py-2 border-b border-white/5"
           >
             IMPLEMENTACIONES
           </Link>
@@ -203,7 +203,7 @@ export default function Navbar() {
           <Link
             href="/solicitar-demo"
             onClick={() => setMobileMenuOpen(false)}
-            className="block w-full text-center bg-[#2563EB] text-white py-2.5 rounded-none font-mono font-bold tracking-wide text-xs"
+            className="block w-full text-center bg-white text-black py-2.5 rounded-none font-mono font-bold tracking-widest text-[10px]"
           >
             SOLICITAR EVALUACIÓN TÉCNICA
           </Link>
